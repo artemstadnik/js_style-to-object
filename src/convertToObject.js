@@ -15,9 +15,10 @@ function convertToObject(sourceString) {
       const property = rule.slice(0, colonIndex).trim();
       const value = rule.slice(colonIndex + 1).trim();
 
-      styleObject[property] = value;
-
-      return styleObject;
+      return {
+        ...styleObject,
+        [property]: value,
+      };
     }, {});
 }
 
